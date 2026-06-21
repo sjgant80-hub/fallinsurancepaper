@@ -60,7 +60,7 @@ If those tools aren't open, FallInsurancePaper still works on its own.
 - Two-audience README + MIT LICENSE.
 - Mobile-first responsive.
 - Disclaimer per shared insurance schema in place.
-- Audit chain on by default (Mansoor P3 extended · per-mutation prevHash chain · 6-year FCA SYSC retention).
+- Audit chain on by default (P3 extended · per-mutation prevHash chain · 6-year FCA SYSC retention).
 - Aesthetic: oxblood / brass / cream / void.
 - Forkable brand (engine name override in settings).
 
