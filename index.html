@@ -1305,7 +1305,26 @@ function printPaper(){
  const pp=$('#paperPreview');
  if(!pp)return;
  const w=window.open('','_blank');
- w.document.write(`<!DOCTYPE html><html><head><style>body{font-family:Georgia,serif;font-size:13px;line-height:1.7;color:#1a1611;max-width:780px;margin:40px auto;padding:20px}h1{text-align:center;font-size:22px}h2{font-size:16px;border-bottom:1px solid #ccc;padding-bottom:4px;margin-top:22px}h3{font-size:14px;font-style:italic}table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}th,td{border:1px solid #ccc;padding:6px 9px}th{background:#eee;font-weight:700}.clause-locked{background:#f5efe0;border-left:3px solid #8b1a1a;padding:8px 12px;margin:8px 0;font-size:12px;font-style:italic}.clause-locked::before{content:'\\25C6 regulatory clause \\00B7 locked \\00B7 ';font-size:9px;color:#8b1a1a;letter-spacing:0.08em;text-transform:uppercase;font-style:normal}.sig-line{border-bottom:1px solid #000;min-height:38px;margin-bottom:4px}.placeholder-empty{background:#ffe9b3;color:#8b1a1a;padding:0 4px;font-weight:700}@media print{body{margin:0;padding:15mm}}</style></head><body>${pp.innerHTML}</body></html>`);
+ w.document.write(`<!DOCTYPE html><html><head><style>body{font-family:Georgia,serif;font-size:13px;line-height:1.7;color:#1a1611;max-width:780px;margin:40px auto;padding:20px}h1{text-align:center;font-size:22px}h2{font-size:16px;border-bottom:1px solid #ccc;padding-bottom:4px;margin-top:22px}h3{font-size:14px;font-style:italic}table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}th,td{border:1px solid #ccc;padding:6px 9px}th{background:#eee;font-weight:700}.clause-locked{background:#f5efe0;border-left:3px solid #8b1a1a;padding:8px 12px;margin:8px 0;font-size:12px;font-style:italic}.clause-locked::before{content:'\\25C6 regulatory clause \\00B7 locked \\00B7 ';font-size:9px;color:#8b1a1a;letter-spacing:0.08em;text-transform:uppercase;font-style:normal}.sig-line{border-bottom:1px solid #000;min-height:38px;margin-bottom:4px}.placeholder-empty{background:#ffe9b3;color:#8b1a1a;padding:0 4px;font-weight:700}@media print{body{margin:0;padding:15mm}}</style></head><body>${pp.innerHTML}
+
+<!-- ═══════════════════════ AUTOPILOT · fall-autopilot-kit ═══════════════════════ -->
+<script type="module">
+  try {
+    const { installAutopilot } = await import('https://sjgant80-hub.github.io/fall-autopilot-kit/src/autopilot.js');
+    const manifestRes = await fetch('https://sjgant80-hub.github.io/fall-autopilot-kit/manifests/fallinsurancepaper.json');
+    const manifest = await manifestRes.json();
+    manifest.actions = manifest.actions.map(a => ({ ...a, run: async (params) => {
+      const fn = window._app?.[a.id];
+      if (typeof fn === 'function') return fn(params);
+      alert('Autopilot proposes: ' + a.name + ' · params: ' + JSON.stringify(params) + '\n\nThis tool has not yet implemented the ' + a.id + ' handler. Proposal logged to audit.');
+      return { stub: true, action: a.id, params };
+    }}));
+    manifest.state = () => ({ ...(window._app || {}), now: new Date().toISOString() });
+    installAutopilot(manifest);
+  } catch (e) { console.warn('[autopilot] init failed:', e); }
+</script>
+
+</body></html>`);
  w.document.close();
  w.focus();
  setTimeout(()=>w.print(),400);
