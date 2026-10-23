@@ -1,0 +1,29 @@
+{
+  "kind": "kard.v1",
+  "name": "fallinsurancepaper",
+  "title": "FallInsurancePaper",
+  "retires": "broker documents",
+  "category": "Insurance, mortgages and advice",
+  "license": "MIT",
+  "live": "https://sjgant80-hub.github.io/fallinsurancepaper/",
+  "repo": "https://github.com/sjgant80-hub/fallinsurancepaper",
+  "studs": {
+    "brain": {
+      "how": "inline",
+      "version": "3.1.0"
+    },
+    "mesh": {
+      "device": true,
+      "peer": false
+    },
+    "memory": {
+      "indexeddb": true,
+      "localstorage": true
+    },
+    "proof": {
+      "workflows": 0,
+      "tests": 0
+    }
+  },
+  "fits": false
+}
